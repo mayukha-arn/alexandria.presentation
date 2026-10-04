@@ -338,6 +338,7 @@
   .cv-meta { position: absolute; top: 620px; font-size: 24px; line-height: 1.4; color: #2c2f33; z-index: 1; }
   .cv-meta small { display: block; font-family: var(--mono); font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--forest); margin-bottom: 6px; }
   .cv-meta.left { left: 80px; } .cv-meta.right { right: 80px; text-align: right; }
+  .cv-meta.right.list { text-align: left; }
   .cv-page { position: absolute; left: 50%; bottom: 16px; margin-left: -200px; width: 400px; height: 44px; border-radius: 999px; background: #fff; box-shadow: 0 6px 20px -8px rgba(0,0,0,.25); display: grid; place-items: center; font-size: 19px; color: #2c2f33; z-index: 4; }
 
   .laptop { position: absolute; left: 50%; top: 380px; width: 960px; margin-left: -480px; z-index: 2; }
@@ -373,6 +374,17 @@
   .active .cv-page { animation: popin .5s 1.4s both; }
   @keyframes rise { from { transform: translateY(420px); } to { transform: none; } }
   @keyframes dropin { from { opacity: 0; transform: translate(-50%, -20px); } to { opacity: 1; transform: translateX(-50%); } }
+
+  .cv-live { display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; font-family: var(--mono); font-size: 17px; color: var(--forest); background: var(--lime-soft); padding: 6px 14px; border-radius: 999px; }
+  .cv-live i { width: 10px; height: 10px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px rgba(61,220,132,.25); }
+  .active .cv-live i { animation: blink 1.4s ease-in-out infinite; }
+  @keyframes blink { 50% { opacity: .35; } }
+  .lt-alert { font-size: 17px; color: #8e2620; background: var(--red-soft); border: 1px solid #ecbcb7; border-radius: 8px; padding: 10px 14px; }
+  .active .lt-alert { animation: shake .5s 1.8s both; }
+  .lt-hash { display: flex; justify-content: space-between; font-size: 15px; padding: 8px 12px; border-radius: 8px; background: #f2f2ef; margin-bottom: 8px; }
+  .lt-hash span { color: var(--muted); } .lt-hash code { font-family: var(--mono); }
+  .lt-hash.bad { background: var(--red-soft); color: var(--red); }
+  .lt-ping { display: inline-block; margin-top: 12px; background: var(--forest); color: #fff; font-size: 15px; font-weight: 600; padding: 8px 14px; border-radius: 8px; }
 </style>
 </head>
 <body>
@@ -557,22 +569,53 @@
 </section>
 
 <!-- 7. Hand off to the live demo  (1:22 to 1:30) -->
-<section class="slide lp" data-time="1:22" data-notes="That's Alexandria. Let us show you. (Switch to the site.)">
-  <div class="orbits" aria-hidden="true">
-    <div class="orbit o1"><span class="sat"></span></div>
-    <div class="orbit o2"><span class="sat"></span></div>
-    <div class="core"><svg viewBox="0 0 24 24"><path d="M7 4l12 8-12 8z"/></svg></div>
-  </div>
-  <div class="lp-body">
-    <div class="kicker">Live demo</div>
-    <h1>Let's see it.</h1>
-    <div class="chips steps">
-      <span><b>1</b>Ask as a support rep</span>
-      <span><b>2</b>Tamper with a document</span>
-      <span><b>3</b>Approve and anchor</span>
+<section class="slide cover" data-time="1:22" data-notes="That's Alexandria. Let us show you. (Switch to the site.)">
+  <nav class="cv-nav">
+    <span class="cv-logo"><span class="cv-mark"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>Alexandria</span>
+    <span class="cv-pill">Problem</span>
+    <span class="cv-pill">Solution</span>
+    <span class="cv-pill on">Demo</span>
+  </nav>
+  <h1 class="cv-title"><span>LET'S SEE IT</span></h1>
+  <div class="cv-meta left"><small>Live demo</small>30 seconds, on the real site<br><span class="cv-live"><i></i>Claude connected</span></div>
+  <div class="cv-meta right list"><small>What you'll see</small>1&nbsp; Ask as a support rep<br>2&nbsp; Tamper with a document<br>3&nbsp; Approve and anchor</div>
+
+  <div class="laptop">
+    <div class="lt-screen">
+      <div class="lt-cam"></div>
+      <div class="lt-app">
+        <div class="app-top"><span class="dots"><i></i><i></i><i></i></span><span class="search">Ask Alexandria anything</span></div>
+        <div class="app-body">
+          <div class="rail"><span class="ws">A</span><span class="ri on">💬</span><span class="ri">📁</span><span class="ri">🔗</span></div>
+          <div class="side">
+            <div class="side-h">Acme Corp</div>
+            <div class="side-l">Alexandria</div>
+            <div class="ch on">✦ Ask</div>
+            <div class="ch">Documents</div>
+            <div class="ch">Approvals</div>
+            <div class="side-l">Channels</div>
+            <div class="ch"># support-docs</div>
+            <div class="ch"># engineering</div>
+          </div>
+          <div class="main">
+            <div class="main-h"><b>Ask</b><span>Answering as Support rep</span></div>
+            <div class="lt-chat">
+              <div class="lt-q">What's our refund policy after 45 days?</div>
+              <div class="lt-alert"><b>⚠ Tamper detected.</b> Refund Playbook changed after approval, so it was excluded.</div>
+              <div class="lt-answer">
+                <div class="lt-hash"><span>Anchored</span><code>4e8737c7…71b8daa45</code></div>
+                <div class="lt-hash bad"><span>Recomputed</span><code>60c9e9e5…bfa9e695</code></div>
+                <p style="margin-top:12px">I can't answer this reliably. Every matching source failed verification.</p>
+                <span class="lt-ping">📣 Ping #support-docs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="lt-base"><span></span></div>
   </div>
-  <div class="chrome"><span>MAYUKHA AJEESH RAMSHA NATH · RISHAB MOHANDOSS</span><span class="pg"></span></div>
+  <div class="cv-page">Page 07</div>
 </section>
 
 </div></div>
@@ -594,9 +637,10 @@
 
   function fitTitle() {
     document.querySelectorAll(".cv-title span").forEach((el) => {
-      el.style.transform = "none";
-      const w = el.getBoundingClientRect().width / (stage.getBoundingClientRect().width / 1920);
-      if (w) el.style.transform = `scale(${(1920 - 60) / w})`;
+      // size by font-size (the entrance animation owns transform)
+      el.style.fontSize = "300px";
+      const w = el.scrollWidth;
+      if (w) el.style.fontSize = `${300 * (1920 - 60) / w}px`;
     });
   }
   function fit() {
