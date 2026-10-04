@@ -576,6 +576,63 @@
     <span class="cv-pill">Solution</span>
     <span class="cv-pill on">Demo</span>
   </nav>
+  <!-- 7. Tech Stack -->
+<section class="slide" data-time="1:22" data-notes="Here is the architecture powering Alexandria. We split this into four layers: Frontend, Backend API, AI Search, and our cryptographic verification layer on Solana.">
+  <div class="kicker">Architecture & Tech Stack</div>
+  <h2>The <em>technology</em> behind every layer.</h2>
+  
+  <div class="stack">
+    <!-- Frontend Layer -->
+    <div class="layer pop" style="--d:.3s">
+      <div class="label">Layer 01</div>
+      <h3>Frontend</h3>
+      <ul>
+        <li>Next.js App Router</li>
+        <li>React & TypeScript</li>
+        <li>Tailwind CSS</li>
+      </ul>
+    </div>
+
+    <!-- Backend Layer -->
+    <div class="layer pop" style="--d:.6s">
+      <div class="label">Layer 02</div>
+      <h3>Backend & Auth</h3>
+      <ul>
+        <li>FastAPI (Python)</li>
+        <li>JWT Role-Based Access</li>
+        <li>PostgreSQL</li>
+      </ul>
+    </div>
+
+    <!-- AI & Search Layer -->
+    <div class="layer pop" style="--d:.9s">
+      <div class="label">Layer 03</div>
+      <h3>AI & Retrieval</h3>
+      <ul>
+        <li>Vector Database</li>
+        <li>Claude (Anthropic API)</li>
+        <li>Local Llama 3 (Prod)</li>
+      </ul>
+    </div>
+
+    <!-- Verification Layer -->
+    <div class="layer pop" style="--d:1.2s">
+      <div class="label">Layer 04</div>
+      <h3>Trust & Verification</h3>
+      <ul>
+        <li>Solana Devnet</li>
+        <li>SHA-256 Hashing</li>
+        <li>Web3.js Integration</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="boundary pop" style="--d:1.8s">
+    <b>Zero-Trust Boundary:</b> No document passes to Layer 03 without cryptographic verification in Layer 04.
+  </div>
+  
+  <div class="chrome"><span>ALEXANDRIA</span><span class="pg"></span></div>
+</section>
   <h1 class="cv-title"><span>LET'S SEE IT</span></h1>
   <div class="cv-meta left"><small>Live demo</small>30 seconds, on the real site<br><span class="cv-live"><i></i>Claude connected</span></div>
   <div class="cv-meta right list"><small>What you'll see</small>1&nbsp; Ask as a support rep<br>2&nbsp; Tamper with a document<br>3&nbsp; Approve and anchor</div>
