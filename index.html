@@ -339,7 +339,6 @@
   .cv-meta small { display: block; font-family: var(--mono); font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--forest); margin-bottom: 6px; }
   .cv-meta.left { left: 80px; } .cv-meta.right { right: 80px; text-align: right; }
   .cv-meta.right.list { text-align: left; }
-  .cv-page { position: absolute; left: 50%; bottom: 16px; margin-left: -200px; width: 400px; height: 44px; border-radius: 999px; background: #fff; box-shadow: 0 6px 20px -8px rgba(0,0,0,.25); display: grid; place-items: center; font-size: 19px; color: #2c2f33; z-index: 4; }
 
   .laptop { position: absolute; left: 50%; top: 380px; width: 960px; margin-left: -480px; z-index: 2; }
   .lt-screen { position: relative; background: #12151b; border-radius: 30px 30px 0 0; padding: 26px 26px 0; height: 590px; box-shadow: 0 60px 120px -50px rgba(0,0,0,.55), inset 0 0 0 2px #2b313b; }
@@ -371,7 +370,6 @@
   .active .cv-title span { animation: popin .8s .1s both; }
   .active .laptop { animation: rise 1.3s .35s cubic-bezier(.2,.75,.25,1) both; }
   .active .cv-meta { animation: popin .6s 1.2s both; }
-  .active .cv-page { animation: popin .5s 1.4s both; }
   @keyframes rise { from { transform: translateY(420px); } to { transform: none; } }
   @keyframes dropin { from { opacity: 0; transform: translate(-50%, -20px); } to { opacity: 1; transform: translateX(-50%); } }
 
@@ -438,7 +436,6 @@
     </div>
     <div class="lt-base"><span></span></div>
   </div>
-  <div class="cv-page">Page 01</div>
 </section>
 
 <!-- 2. The problem, as a chat  (0:05 to 0:25) -->
@@ -480,7 +477,7 @@
       <div class="prob pop" style="--d:4.9s"><span class="pn red">03</span><h3>No one can trust the docs</h3><p>Nobody can prove a guide wasn't edited.</p></div>
     </div>
   </div>
-  <div class="chrome"><span>ALEXANDRIA</span><span class="pg"></span></div>
+  <div class="chrome"><span>ALEXANDRIA</span></div>
 </section>
 
 <!-- 3. Problem statement  (0:25 to 0:35) -->
@@ -492,7 +489,7 @@
     <span class="pill"><b>Engineers</b> need the raw technical detail</span>
     <span class="pill"><b>Security and legal</b> need nothing to leak</span>
   </div>
-  <div class="chrome"><span>ALEXANDRIA</span><span class="pg"></span></div>
+  <div class="chrome"><span>ALEXANDRIA</span></div>
 </section>
 
 <!-- 4. How it works  (0:35 to 0:55) -->
@@ -508,7 +505,7 @@
     <div class="step"><div class="dot">5</div><h3>Answer</h3><p>The model answers from verified sources only.</p><div class="tech">Claude today · local Llama 3 in prod</div></div>
   </div>
   <div class="callout"><b>Security sits between retrieval and the prompt.</b> Hidden or tampered documents never reach the model.</div>
-  <div class="chrome"><span>ALEXANDRIA</span><span class="pg"></span></div>
+  <div class="chrome"><span>ALEXANDRIA</span></div>
 </section>
 
 <!-- 5. Tamper detection  (0:55 to 1:10) -->
@@ -535,7 +532,7 @@
       <div class="sl"><span class="n">4</span><div><h3>Flag</h3><p>A mismatch drops the source and warns the user.</p></div></div>
     </div>
   </div>
-  <div class="chrome"><span>ALEXANDRIA</span><span class="pg"></span></div>
+  <div class="chrome"><span>ALEXANDRIA</span></div>
 </section>
 
 <!-- 6. Knowledge loop as a channel thread  (1:10 to 1:22) -->
@@ -565,10 +562,9 @@
       <li class="pop" style="--d:2.6s"><span>3</span><div><h3>Senior approves</h3><p>Hash anchored. Everyone's next answer includes it.</p></div></li>
     </ol>
   </div>
-  <div class="chrome"><span>ALEXANDRIA</span><span class="pg"></span></div>
+  <div class="chrome"><span>ALEXANDRIA</span></div>
 </section>
 
-<!-- 7. Hand off to the live demo  (1:22 to 1:30) -->
 <!-- 7. Tech Stack -->
 <section class="slide" data-time="1:22" data-notes="Here is the architecture powering Alexandria. We split this into four layers: Frontend, Backend API, AI Search, and our cryptographic verification layer on Solana.">
   <div class="kicker">Architecture & Tech Stack</div>
@@ -624,8 +620,10 @@
     <b>Zero-Trust Boundary:</b> No document passes to Layer 03 without cryptographic verification in Layer 04.
   </div>
   
-  <div class="chrome"><span>ALEXANDRIA</span><span class="pg"></span></div>
+  <div class="chrome"><span>ALEXANDRIA</span></div>
 </section>
+
+<!-- 8. Hand off to the live demo  (1:22 to 1:30) -->
 <section class="slide cover" data-time="1:22" data-notes="That's Alexandria. Let us show you. (Switch to the site.)">
   <nav class="cv-nav">
     <span class="cv-logo"><span class="cv-mark"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span>Alexandria</span>
@@ -672,7 +670,6 @@
     </div>
     <div class="lt-base"><span></span></div>
   </div>
-  <div class="cv-page">Page 07</div>
 </section>
 
 </div></div>
@@ -723,9 +720,7 @@
     slides.forEach((el, k) => el.classList.toggle("active", k === i));
     progress.style.width = `${((i + 1) / slides.length) * 100}%`;
     try { history.replaceState(null, "", `#${i + 1}`); } catch (_) { /* sandboxed preview: no URL updates */ }
-    
   }
-  slides.forEach((el, k) => { const pg = el.querySelector(".pg"); if (pg) pg.textContent = `${String(k + 1).padStart(2, "0")} / ${slides.length}`; });
 
   document.addEventListener("keydown", (e) => {
     if (["ArrowRight", "PageDown", " ", "Enter"].includes(e.key)) { e.preventDefault(); show(i + 1); }
@@ -762,7 +757,6 @@
   try { window.focus(); } catch (_) {}
   document.documentElement.classList.add("js");
 })();
-
 </script>
 </body>
 </html>
