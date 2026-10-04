@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentation Title Template</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #010409;
+    --surface: #0d1117;
+    --primary: #7c3aed;
+    --secondary: #0ea5e9;
+    --accent: #ec4899;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --text: #f0f6fc;
+    --dim: #8b949e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    font-family: 'Syne', sans-serif;
+    color: var(--text);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ── NAVIGATION ── */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 4px;
+    background: var(--primary);
+    z-index: 100; transition: width 0.4s ease;
+  }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px; opacity: 0; pointer-events: none;
+    transition: all 0.5s ease-in-out;
+  }
+  .slide.active { opacity: 1; pointer-events: all; }
+
+  /* ── TYPOGRAPHY ── */
+  .title-group { text-align: center; margin-bottom: 40px; width: 100%; }
+  h1 { font-size: 80px; font-weight: 900; letter-spacing: -2px; }
+  h2 { font-size: 60px; font-weight: 800; text-align: center; width: 100%; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; color: var(--primary);
+    letter-spacing: 5px; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  /* ── CARDS & VISUALS ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid #30363d;
+    border-radius: 24px; padding: 30px;
+    width: 100%; max-width: 800px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  }
+  .waveform {
+    display: flex; align-items: center; gap: 3px;
+    height: 60px; margin: 20px 0;
+  }
+  .bar {
+    width: 4px; background: var(--primary);
+    border-radius: 2px; animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { height: 10px; }
+    50% { height: 40px; }
+  }
+
+  /* ── LAYOUT COMPONENTS ── */
+  .demo-container {
+    display: grid; grid-template-columns: 1fr 350px;
+    gap: 20px; width: 100%; max-width: 1100px;
+  }
+  .content-box {
+    background: #161b22; border-radius: 12px;
+    padding: 20px; height: 300px; overflow-y: auto;
+    font-family: 'JetBrains Mono'; font-size: 14px;
+  }
+  .sidebar-analytics {
+    display: flex; flex-direction: column; gap: 15px;
+  }
+  .pill {
+    padding: 10px 15px; border-radius: 8px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid var(--primary); font-size: 12px;
+  }
+
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- Slide 1: Title -->
+<div class="slide active">
+  <div class="title-group">
+    <div class="eyebrow">[Category / Subtitle]</div>
+    <h1>[PRESENTATION TITLE]</h1>
+    <p style="color: var(--dim); margin-top: 20px; font-size: 20px;">[Main takeaway or summary line describing the presentation]</p>
+  </div>
+  <div class="card" style="text-align:center;">
+    <div class="waveform" style="justify-content:center;">
+      <div class="bar" style="animation-delay: 0.1s"></div>
+      <div class="bar" style="animation-delay: 0.3s"></div>
+      <div class="bar" style="animation-delay: 0.2s"></div>
+      <div class="bar" style="animation-delay: 0.5s"></div>
+      <div class="bar" style="animation-delay: 0.4s"></div>
+      <div class="bar" style="animation-delay: 0.1s"></div>
+      <div class="bar" style="animation-delay: 0.7s"></div>
+    </div>
+    <span style="font-family:'JetBrains Mono'; color:var(--primary)">[STATUS OR CALLOUT TEXT]</span>
+  </div>
+</div>
+
+<!-- Slide 2: Feature Overview -->
+<div class="slide">
+  <div class="title-group">
+    <div class="eyebrow">[Section Tag]</div>
+    <h2>[Main Section Title]</h2>
+  </div>
+  <div class="demo-container">
+    <div class="card">
+      <h4 style="margin-bottom:15px; color:var(--secondary)">[FEATURE HEADER]</h4>
+      <p style="color:var(--dim)">[Description paragraph detailing the feature, topic, or concept being presented here.]</p>
+      <div class="waveform">
+        <div class="bar" style="height:30px; background:var(--success)"></div>
+        <div class="bar" style="height:45px; background:var(--success)"></div>
+        <div class="bar" style="height:20px; background:var(--warning)"></div>
+        <div class="bar" style="height:60px; background:var(--warning)"></div>
+        <div class="bar" style="height:15px; background:var(--accent)"></div>
+      </div>
+      <p style="font-size:12px; font-family:'JetBrains Mono';">[!] [System notification or secondary insight]</p>
+    </div>
+    <div class="sidebar-analytics">
+      <div class="pill">[Key Tag 1]</div>
+      <div class="pill">[Key Tag 2]</div>
+      <div class="pill">[Key Tag 3]</div>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3: Comparison / Process -->
+<div class="slide">
+  <div class="title-group">
+    <div class="eyebrow">[Framework Tag]</div>
+    <h2>[Comparison Topic]</h2>
+  </div>
+  <div style="display:flex; gap:30px; width:100%; max-width:900px;">
+    <div class="card" style="flex:1;">
+      <p style="font-size:12px; color:var(--dim); margin-bottom:10px;">[BEFORE / ORIGINAL STATE]</p>
+      <p>"[Insert original concept, problem statement, or initial approach here]"</p>
+    </div>
+    <div style="display:flex; align-items:center; font-size:40px;">➞</div>
+    <div class="card" style="flex:1; border-color:var(--success); background:rgba(16, 185, 129, 0.05)">
+      <p style="font-size:12px; color:var(--success); margin-bottom:10px;">[AFTER / PROPOSED SOLUTION]</p>
+      <p>"[Insert improved outcome, solution, or updated concept here]"</p>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 4: Interactive / Console View -->
+<div class="slide">
+  <div class="title-group">
+    <div class="eyebrow">[Demo Tag]</div>
+    <h2>[Process / Dashboard Title]</h2>
+  </div>
+  <div class="demo-container">
+    <div class="content-box">
+      <p style="color:var(--dim); margin-bottom:10px;">[00:01] <strong>User:</strong> [Input sequence or log line 1]</p>
+      <p style="color:var(--text); margin-bottom:10px;">[00:02] <strong>System:</strong> [Output sequence or log line 2]</p>
+      <p style="color:var(--primary); background:rgba(124, 58, 237, 0.1); padding:5px;">[EVENT] [Alert or highlighted status statement]</p>
+      <p style="color:var(--success); margin-top:10px;">[ACTION] [Recommended step or resolution statement]</p>
+    </div>
+    <div class="sidebar-analytics">
+      <div class="card" style="padding:15px;">
+        <p style="font-size:11px;">[METRIC 1 TITLE]</p>
+        <h3 style="color:var(--success)">[00%]</h3>
+      </div>
+      <div class="card" style="padding:15px;">
+        <p style="font-size:11px;">[METRIC 2 TITLE]</p>
+        <h3 style="color:var(--warning)">[Status]</h3>
+      </div>
+      <button onclick="alert('Action Triggered')" style="padding:12px; background:var(--primary); border:none; border-radius:8px; color:white; font-weight:bold; cursor:pointer;">[ACTION BUTTON]</button>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 5: Grid / Architecture -->
+<div class="slide">
+  <div class="title-group">
+    <div class="eyebrow">[Infrastructure]</div>
+    <h2>[Architecture & Tech Stack]</h2>
+  </div>
+  <div class="grid" style="display:flex; gap:20px;">
+    <div class="card" style="text-align:center;">
+      <h3 style="color:var(--secondary)">[COMPONENT 1]</h3>
+      <p style="font-size:14px; margin-top:10px;">[Short description of the first module or key building block]</p>
+    </div>
+    <div class="card" style="text-align:center;">
+      <h3 style="color:var(--primary)">[COMPONENT 2]</h3>
+      <p style="font-size:14px; margin-top:10px;">[Short description of the second module or key building block]</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  let current = 0;
+
+  function update() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    progress.style.width = ((current + 1) / slides.length) * 100 + '%';
+  }
+
+  window.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    update();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') current = (current + 1) % slides.length;
+    if (e.key === 'ArrowLeft') current = (current - 1 + slides.length) % slides.length;
+    update();
+  });
+</script>
+</body>
+</html>
